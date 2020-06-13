@@ -1,0 +1,14 @@
+/*- Custom style -*/
+
+figure.highlight,
+pre.highlight {
+    padding: 1rem 1rem;
+    overflow: auto;
+    line-height: 1.4rem;
+    position: relative;
+}
+
+code {
+    color: #e9ecef;
+    background-color: $highlight-background-color;
+}
