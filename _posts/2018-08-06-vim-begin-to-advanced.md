@@ -2,9 +2,9 @@
 title: VIM 从入门到进阶
 ---
 
-## 1. VIM 的三种模式
+### VIM 的三种模式
 
-### 1.1 命令模式（Command mode)
+#### 命令模式（Command mode)
 
 vim 打开后就进入这个模式，所有的输入会被当成命令，不能输入字符。
 命令模式下有3个选择：
@@ -12,11 +12,11 @@ vim 打开后就进入这个模式，所有的输入会被当成命令，不能�
 * 按下 `i a I A` 等输入命令中的一个，进入 `输入模式`
 * 按下 `:` 进入 `底线命令模式`
 
-### 1.2 输入模式 (Insert mode)
+#### 输入模式 (Insert mode)
 
 这个模式下，可以像个正常编辑器一样，输入字符编辑。按 `<ESC>` 回到`命令模式`
 
-### 1.3 底线命令模式 （Last line mode）
+#### 底线命令模式 （Last line mode）
 
 可以执行 `Ex Command`，包括保存文件，退出 vim 等操作，必须在这个模式执行。
 
@@ -31,7 +31,7 @@ vim 打开后就进入这个模式，所有的输入会被当成命令，不能�
 | e {filename} | 打开 {filename} 文件 |
 | help | 打开帮助文档，基本没啥用，需要先学会怎么看帮助文件 |
 
-### 1.4 初次使用
+#### 初次使用
 
 1. vim a.txt           // 打开 a.txt 这个文件
 2. 按 `i` 进入输入模式
@@ -40,12 +40,12 @@ vim 打开后就进入这个模式，所有的输入会被当成命令，不能�
 5. 按 `:` 进入底线命令模式
 6. 输入 `wq <回车>`，保存文件并退出
 
-## 2. 常见的命令
+### 常见的命令
 
 Q: 为什么不能像个正常编辑器一样使用？
 A: 命令模式的功能太强大了
 
-### 2.1 移动光标 (motion command)
+#### 移动光标 (motion command)
 
 | command | note |
 | --- | --- |
@@ -62,7 +62,7 @@ A: 命令模式的功能太强大了
 | G | 到最后一行 |
 | M | 到屏幕中间的一行 |
 
-### 2.2 输入命令，进入输入模式
+#### 输入命令，进入输入模式
 
 | command | note |
 | --- | --- |
@@ -75,7 +75,7 @@ A: 命令模式的功能太强大了
 | c{motion} | 删除某个方向的字符，并进入 Insert 模式 |
 | C | 从光标删除到行尾，并进入 Insert 模式 |
 
-### 2.3 删除命令
+#### 删除命令
 
 | command | note |
 | --- | --- |
@@ -85,7 +85,7 @@ A: 命令模式的功能太强大了
 | D | 删除光标到行尾的所有内容 |
 | dd | 删除一行 |
 
-### 2.4 Undo/Redo/Repeat
+#### Undo/Redo/Repeat
 
 | command | note |
 | --- | --- |
@@ -93,9 +93,9 @@ A: 命令模式的功能太强大了
 | Ctrl-r | Redo |
 | . | Repeat |
 
-## 3. 更强大一点
+### 更强大一点
 
-### 3.1 块操作
+#### 块操作
 
 | command | note |
 | --- | --- |
@@ -122,7 +122,7 @@ Ctrl-v
 输入要追加的内容，按 `<ESC>` 完成
 ```
 
-### 3.2 复制粘贴
+#### 复制粘贴
 
 | command | note |
 | --- | --- |
@@ -136,7 +136,7 @@ Ctrl-v
 | "{a-zA-Z0-9} | 指定寄存器 |
 | :reg | 查看寄存器 |
 
-### 3.3 多次重复
+#### 多次重复
 
 命令前按数字，表示重复执行多次命令
 
@@ -147,7 +147,7 @@ Ctrl-v
 | 3x | 删除 3 个字符 |
 | 3dd | 删除 3 行 |
 
-### 3.4 搜索
+#### 搜索
 
 | command | note |
 | --- | --- |
@@ -161,7 +161,7 @@ Ctrl-v
 
 vim 默认使用 Basic Regular Expressions ，扩展符号需要转义 `\+ \? \( \) \{ \} \|` 
 
-### 3.5 Changing (or Replacing) Text
+#### Changing (or Replacing) Text
 
 | command | note |
 | --- | --- |
@@ -171,7 +171,7 @@ vim 默认使用 Basic Regular Expressions ，扩展符号需要转义 `\+ \? \(
 | r{char} | 把光标下的字符替换为 {char} |
 | R | 进入替换模式，直到 `<ESC>` 退出 |
 
-### 3.6 窗口管理
+#### 窗口管理
 
 | command | note |
 | --- | --- |
@@ -183,7 +183,7 @@ vim 默认使用 Basic Regular Expressions ，扩展符号需要转义 `\+ \? \(
 | Ctrl-w-k | 光标移动到上边的窗口 |
 | Ctrl-w-l | 光标移动到右边的窗口 |
 
-### 3.6 窗口管理
+#### 窗口管理
 
 | command | note |
 | --- | --- |
@@ -195,7 +195,7 @@ vim 默认使用 Basic Regular Expressions ，扩展符号需要转义 `\+ \? \(
 | Ctrl-w-k | 光标移动到上边的窗口 |
 | Ctrl-w-l | 光标移动到右边的窗口 |
 
-## 4. 更强大的 `Ex Command`
+### 更强大的 `Ex Command`
 
 按 `:` 进入底线命令模式后，可以执行以下命令。
 
@@ -219,7 +219,7 @@ vim 默认使用 Basic Regular Expressions ，扩展符号需要转义 `\+ \? \(
 | ! | 查看终端界面 |
 | {num} | 光标移到 {num} 对应的行 |
 
-## 5. 其它命令
+### 其它命令
 
 ```shell
 vimdiff file1 file2               # 差分两个文件
@@ -227,7 +227,7 @@ vim -d file1 file2                # 同上
 git difftool HEAD HEAD~1          # git 中差分两个版本
 ```
 
-## 6. `.vimrc` 配置文件
+### `.vimrc` 配置文件
 ```conf
 set nocompatible     " do not compatible with vi
 set ruler
@@ -274,7 +274,6 @@ set statusline+=%2*0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 ```
 
-参考资料：
-
+参考资料：\\
 [简明 VIM 练级攻略](https://coolshell.cn/articles/5426.html) \\
 [VIM Tips Wiki](https://vim.fandom.com/wiki/Vim_Tips_Wiki)
