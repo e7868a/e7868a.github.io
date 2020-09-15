@@ -1,5 +1,6 @@
 ---
 title: GIS基础知识 - 坐标系、投影、EPSG:4326、EPSG:3857
+category: 软件开发
 ---
 
 最近接手一个GIS项目，需要用到 PostGIS，GeoServer，OpenLayers 等工具组件，遇到一堆地理信息相关的术语名词，在这里做一个总结。

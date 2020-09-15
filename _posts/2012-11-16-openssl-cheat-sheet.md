@@ -1,5 +1,6 @@
 ---
 title: OpenSSL Cheat Sheet
+category: 系统运维
 ---
 
 OpenSSL 是 SSL 和 TLS 的开源实现，常用于身份验证、数据加密等场景中，本文介绍 OpenSSL 的常用命令。
