@@ -1,14 +1,14 @@
 # Site settings
 title: XFTTYY | My Blog
 description: "一个技术博客"
-url: "http2://e7868a.github.io"
+url: "https://www.e7868a.com"
 author:
   name: "Yang Jian"
   email: "marine8086@hotmail.com"
-  url: "https://e7868a.github.io"
+  url: "https://www.e7868a.com"
 
 # Build settings
-baseurl: /
+baseurl: "/"
 markdown: kramdown
 highlighter: rouge
 source: .

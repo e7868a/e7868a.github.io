@@ -1,5 +1,6 @@
 ---
 title: Windows 下编译 ZooKeeper
+category: 软件开发
 ---
 
 ZooKeeper 号称 Windows 下也可以用 C++ 做开发用。并提供了 zookeeper.sln、zookeeper.vcproj 的工程文件。但是如果你用 VC2008 去打开它的话，就会报错，说工程里已添加了一个工程云云。

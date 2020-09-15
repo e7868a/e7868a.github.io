@@ -1,5 +1,6 @@
 ---
 title: VIM 从入门到进阶
+category: 软件开发
 ---
 
 ### VIM 的三种模式

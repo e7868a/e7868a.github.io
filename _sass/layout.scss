@@ -135,10 +135,35 @@ html, body {
   	font-family: 'Signika', sans-serif; //Emerald logo font
     font-weight: 600;
   }
+
+  #site-nav>*:first-child:before {
+    content: "";
+    margin: 0;
+  }
+  #site-nav>*:before {
+    content: "|";
+    color: #aaa;
+    margin: 0 .75em;
+    position: relative;
+    top: 1px;
+  }
+
+  #site-nav:before{
+  	display: block;
+    content: '';
+    width: 38rem;
+    height: 1px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    margin-left: auto;;
+    margin-right: auto;
+    background-color: lighten($text-color, 70%);
+  }
+
   &:after {
   	display: block;
     content: '';
-    width: 5rem;
+    width: 30rem;
     height: 1px;
     margin-top: 16px;
     margin-bottom: 0;
