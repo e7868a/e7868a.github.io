@@ -9,6 +9,7 @@ author:
 
 # Build settings
 baseurl: "/"
+newbaseurl: "/"
 markdown: kramdown
 highlighter: rouge
 source: .
