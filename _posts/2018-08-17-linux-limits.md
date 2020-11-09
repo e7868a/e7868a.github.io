@@ -98,7 +98,7 @@ ExecStart=/usr/bin/supervisord -c /etc/supervisord.conf
 WantedBy=multi-user.target
 ```
 保存文件后，需要调用 `systemctl daemon-reload` 刷新服务配置。
-```shell
+```console
 # 查看默认的 LimitNOFILE
 > systemctl show -p DefaultLimitNOFILE
 4096
