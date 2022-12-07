@@ -63,8 +63,8 @@ for (groups in result) {
         }
 
         def sorted = items.sort { a, b ->
-            def a_updated = a.getEntityMetadata().getDocument().field('last_updated')
-            def b_updated = b.getEntityMetadata().getDocument().field('last_updated')
+            def a_updated = a.lastUpdated()
+            def b_updated = b.lastUpdated()
             return a_updated.compareTo(b_updated)
         }
         def toDelete = sorted[0..-(keepSize + 1)]
