@@ -1,11 +1,11 @@
 # Site settings
 title: XFTTYY | My Blog
 description: "一个技术博客"
-url: "https://www.e7868a.com"
+url: "https://e7868a.com"
 author:
   name: "Yang Jian"
   email: "marine8086@hotmail.com"
-  url: "https://www.e7868a.com"
+  url: "https://e7868a.com"
 
 # Build settings
 baseurl: "/"
