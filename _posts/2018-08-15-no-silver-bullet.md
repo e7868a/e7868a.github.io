@@ -1,6 +1,6 @@
 ---
 title: 软件开发的“偶然”困难和“本质”困难
-category: 软件架构
+category: 软件思考
 ---
 
 ### No Silver Bullet

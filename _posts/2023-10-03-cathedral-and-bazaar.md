@@ -1,6 +1,6 @@
 ---
 title: 大教堂与市集
-category: 软件架构
+category: 软件思考
 ---
 
 在软件工程历史上，Eric S. Raymond 于 1997 年发表的文章[《The Cathedral and the Bazaar》](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar)（大教堂与市集）是一篇具有里程碑意义的重要文献。文章用“大教堂”和“市集”类比了“自上而下”和“自下而上”两种软件开发方法，深入探讨了软件开发过程中的不同方法论及其影响。这篇文章不仅对开源社区产生了深远影响，还为现代软件开发人员提供了宝贵的经验教训。
