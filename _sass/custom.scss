@@ -73,3 +73,28 @@ table tr td:last-child {
       font-size: 1.2em; font-weight: bold; vertical-align: super;
     }
   }
+
+/*- Note block (NOTE 提示框) -*/
+blockquote.note {
+    font-style: normal;
+    border-left: 4px solid #4a90d9;
+    padding: 0.4em 1em;
+
+    /* typography.scss 里 blockquote p 的 padding: 1.5em 0 特异性更高,
+       必须用 & 显式提升特异性才能压住,否则两段之间撑成 3em。 */
+    & p {
+        padding: 0.4em 0;
+        margin: 0;
+    }
+    & p:first-child {
+        padding-top: 0.2em;
+    }
+    & p:last-child {
+        padding-bottom: 0.2em;
+    }
+
+    &::before {
+        content: "💡 ";
+        font-size: 1.1em;
+    }
+}

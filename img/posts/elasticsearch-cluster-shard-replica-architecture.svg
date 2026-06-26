@@ -1,0 +1,113 @@
+<svg viewBox="0 0 980 620" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, Noto Sans SC, PingFang SC, sans-serif">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+    .title { fill: #f8fafc; font-size: 16px; font-weight: 700; }
+    .subtitle { fill: #94a3b8; font-size: 9px; }
+    .label { fill: #f8fafc; font-size: 11px; font-weight: 600; }
+    .small { fill: #94a3b8; font-size: 9px; }
+    .tiny { fill: #cbd5e1; font-size: 8px; }
+    .region-label { font-size: 9px; font-weight: 600; }
+  </style>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <text x="30" y="35" fill="#f8fafc" font-size="16" font-weight="700">Cluster、Node、Shard 与 Replica</text>
+  <text x="30" y="53" fill="#94a3b8" font-size="9">一个 index 被拆成多个 primary shard；replica 是 primary 的拷贝，分散到不同 node 上提升可用性和读取吞吐。</text>
+
+  <path d="M 190 190 L 282 190" fill="none" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#arrow-cyan)"/>
+  <path d="M 430 190 L 490 202" fill="none" stroke="#34d399" stroke-width="1.3" marker-end="url(#arrow-emerald)"/>
+  <path d="M 430 190 L 645 202" fill="none" stroke="#34d399" stroke-width="1.3" marker-end="url(#arrow-emerald)"/>
+  <path d="M 430 190 L 800 202" fill="none" stroke="#34d399" stroke-width="1.3" marker-end="url(#arrow-emerald)"/>
+  <path d="M 545 238 C 575 275 760 285 812 326" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-violet)"/>
+  <path d="M 700 238 C 670 280 590 285 557 326" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-violet)"/>
+  <path d="M 855 238 C 820 282 742 286 712 326" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-violet)"/>
+  <path d="M 360 323 L 360 400 L 520 400" fill="none" stroke="#64748b" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="45" y="155" width="145" height="70" rx="6" fill="#0f172a"/>
+  <rect x="45" y="155" width="145" height="70" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="117.5" y="184" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Client / Kibana</text>
+  <text x="117.5" y="201" fill="#94a3b8" font-size="9" text-anchor="middle">REST API 请求</text>
+
+  <rect x="260" y="95" width="680" height="415" rx="12" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="10,5"/>
+  <text x="275" y="114" fill="#fbbf24" font-size="9" font-weight="600">Elasticsearch Cluster</text>
+
+  <rect x="285" y="155" width="145" height="70" rx="6" fill="#0f172a"/>
+  <rect x="285" y="155" width="145" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="357.5" y="184" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Coordinating Node</text>
+  <text x="357.5" y="201" fill="#94a3b8" font-size="9" text-anchor="middle">路由、分发、合并</text>
+
+  <rect x="285" y="285" width="145" height="82" rx="6" fill="#0f172a"/>
+  <rect x="285" y="285" width="145" height="82" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="357.5" y="314" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Index: orders</text>
+  <text x="357.5" y="333" fill="#94a3b8" font-size="9" text-anchor="middle">3 primary shards</text>
+  <text x="357.5" y="351" fill="#94a3b8" font-size="9" text-anchor="middle">1 replica each</text>
+
+  <rect x="475" y="135" width="140" height="255" rx="10" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="489" y="154" fill="#60a5fa" font-size="9" font-weight="600">Node A</text>
+  <rect x="495" y="180" width="100" height="58" rx="6" fill="#0f172a"/>
+  <rect x="495" y="180" width="100" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="545" y="203" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Primary P0</text>
+  <text x="545" y="219" fill="#94a3b8" font-size="9" text-anchor="middle">shard 0</text>
+  <rect x="495" y="310" width="100" height="58" rx="6" fill="#0f172a"/>
+  <rect x="495" y="310" width="100" height="58" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="545" y="333" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Replica R1</text>
+  <text x="545" y="349" fill="#94a3b8" font-size="9" text-anchor="middle">P1 的副本</text>
+
+  <rect x="630" y="135" width="140" height="255" rx="10" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="644" y="154" fill="#60a5fa" font-size="9" font-weight="600">Node B</text>
+  <rect x="650" y="180" width="100" height="58" rx="6" fill="#0f172a"/>
+  <rect x="650" y="180" width="100" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="700" y="203" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Primary P1</text>
+  <text x="700" y="219" fill="#94a3b8" font-size="9" text-anchor="middle">shard 1</text>
+  <rect x="650" y="310" width="100" height="58" rx="6" fill="#0f172a"/>
+  <rect x="650" y="310" width="100" height="58" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="700" y="333" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Replica R2</text>
+  <text x="700" y="349" fill="#94a3b8" font-size="9" text-anchor="middle">P2 的副本</text>
+
+  <rect x="785" y="135" width="140" height="255" rx="10" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="799" y="154" fill="#60a5fa" font-size="9" font-weight="600">Node C</text>
+  <rect x="805" y="180" width="100" height="58" rx="6" fill="#0f172a"/>
+  <rect x="805" y="180" width="100" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="855" y="203" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Primary P2</text>
+  <text x="855" y="219" fill="#94a3b8" font-size="9" text-anchor="middle">shard 2</text>
+  <rect x="805" y="310" width="100" height="58" rx="6" fill="#0f172a"/>
+  <rect x="805" y="310" width="100" height="58" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="855" y="333" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Replica R0</text>
+  <text x="855" y="349" fill="#94a3b8" font-size="9" text-anchor="middle">P0 的副本</text>
+
+  <rect x="520" y="430" width="345" height="42" rx="6" fill="#0f172a"/>
+  <rect x="520" y="430" width="345" height="42" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="692.5" y="456" fill="#cbd5e1" font-size="8" text-anchor="middle">每个 shard copy 都是一个可独立读写的 Lucene index；同一 primary 的 replica 不放在同一 node 上。</text>
+
+  <text x="235" y="178" fill="#cbd5e1" font-size="8" text-anchor="middle">HTTP</text>
+  <text x="460" y="177" fill="#cbd5e1" font-size="8" text-anchor="middle">routing</text>
+  <text x="698" y="281" fill="#cbd5e1" font-size="8" text-anchor="middle">replication</text>
+
+  <g transform="translate(610,528)">
+    <rect x="0" y="0" width="330" height="42" rx="6" fill="rgba(30,41,59,0.65)" stroke="#475569" stroke-width="1"/>
+    <rect x="14" y="14" width="12" height="12" rx="2" fill="rgba(6,78,59,0.4)" stroke="#34d399"/>
+    <text x="32" y="24" fill="#cbd5e1" font-size="8">primary shard</text>
+    <rect x="128" y="14" width="12" height="12" rx="2" fill="rgba(76,29,149,0.4)" stroke="#a78bfa"/>
+    <text x="146" y="24" fill="#cbd5e1" font-size="8">replica shard</text>
+    <rect x="246" y="14" width="12" height="12" rx="2" fill="rgba(120,53,15,0.3)" stroke="#fbbf24"/>
+    <text x="264" y="24" fill="#cbd5e1" font-size="8">index</text>
+  </g>
+</svg>
