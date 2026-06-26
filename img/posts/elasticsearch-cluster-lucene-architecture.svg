@@ -1,0 +1,105 @@
+<svg viewBox="0 0 980 580" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, Noto Sans SC, PingFang SC, sans-serif">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+    .title { fill: #f8fafc; font-size: 16px; font-weight: 700; }
+    .subtitle { fill: #94a3b8; font-size: 9px; }
+    .label { fill: #f8fafc; font-size: 11px; font-weight: 600; }
+    .small { fill: #94a3b8; font-size: 9px; }
+    .tiny { fill: #cbd5e1; font-size: 8px; }
+    .region-label { font-size: 9px; font-weight: 600; }
+  </style>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <text x="30" y="35" fill="#f8fafc" font-size="16" font-weight="700">Elasticsearch 与 Lucene 的关系</text>
+  <text x="30" y="53" fill="#94a3b8" font-size="9">Elasticsearch 负责分布式封装和易用 API；Lucene 负责单个 shard 内部真正的索引、检索、评分与 segment 管理。</text>
+
+  <path d="M 190 235 L 282 235" fill="none" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#arrow-cyan)"/>
+  <path d="M 780 210 L 780 300" fill="none" stroke="#34d399" stroke-width="1.3" marker-end="url(#arrow-emerald)"/>
+  <path d="M 430 360 L 430 404" fill="none" stroke="#a78bfa" stroke-width="1.2" marker-end="url(#arrow-violet)"/>
+  <path d="M 570 360 L 570 404" fill="none" stroke="#a78bfa" stroke-width="1.2" marker-end="url(#arrow-violet)"/>
+  <path d="M 710 360 L 710 404" fill="none" stroke="#a78bfa" stroke-width="1.2" marker-end="url(#arrow-violet)"/>
+
+  <rect x="45" y="200" width="145" height="70" rx="6" fill="#0f172a"/>
+  <rect x="45" y="200" width="145" height="70" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="117.5" y="229" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Client / Kibana</text>
+  <text x="117.5" y="246" fill="#94a3b8" font-size="9" text-anchor="middle">REST API / DSL</text>
+
+  <rect x="260" y="85" width="680" height="190" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="10,5"/>
+  <text x="275" y="104" fill="#34d399" font-size="9" font-weight="600">Elasticsearch 层</text>
+
+  <rect x="290" y="130" width="135" height="58" rx="6" fill="#0f172a"/>
+  <rect x="290" y="130" width="135" height="58" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="357.5" y="153" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">REST API</text>
+  <text x="357.5" y="169" fill="#94a3b8" font-size="9" text-anchor="middle">HTTP 入口</text>
+
+  <rect x="450" y="130" width="135" height="58" rx="6" fill="#0f172a"/>
+  <rect x="450" y="130" width="135" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="517.5" y="153" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Query DSL</text>
+  <text x="517.5" y="169" fill="#94a3b8" font-size="9" text-anchor="middle">查询表达能力</text>
+
+  <rect x="610" y="130" width="135" height="58" rx="6" fill="#0f172a"/>
+  <rect x="610" y="130" width="135" height="58" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="677.5" y="153" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Cluster 管理</text>
+  <text x="677.5" y="169" fill="#94a3b8" font-size="9" text-anchor="middle">node / shard 元数据</text>
+
+  <rect x="770" y="130" width="135" height="58" rx="6" fill="#0f172a"/>
+  <rect x="770" y="130" width="135" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="837.5" y="153" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">路由与复制</text>
+  <text x="837.5" y="169" fill="#94a3b8" font-size="9" text-anchor="middle">分发请求、合并结果</text>
+
+  <rect x="365" y="215" width="360" height="38" rx="6" fill="#0f172a"/>
+  <rect x="365" y="215" width="360" height="38" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="545" y="239" fill="#cbd5e1" font-size="8" text-anchor="middle">Elasticsearch = 分布式系统 + REST API + 集群管理 + 查询 DSL + Lucene</text>
+
+  <rect x="300" y="315" width="600" height="66" rx="10" fill="#0f172a"/>
+  <rect x="300" y="315" width="600" height="66" rx="10" fill="rgba(76,29,149,0.24)" stroke="#a78bfa" stroke-width="1.3"/>
+  <text x="600" y="340" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Shard Copy 抽象</text>
+  <text x="600" y="358" fill="#94a3b8" font-size="9" text-anchor="middle">每个 primary 或 replica shard 的底层，都是一个完整的 Lucene index</text>
+
+  <rect x="250" y="415" width="170" height="72" rx="6" fill="#0f172a"/>
+  <rect x="250" y="415" width="170" height="72" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="335" y="443" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Lucene Index</text>
+  <text x="335" y="460" fill="#94a3b8" font-size="9" text-anchor="middle">单 shard 内部索引</text>
+
+  <rect x="445" y="415" width="150" height="72" rx="6" fill="#0f172a"/>
+  <rect x="445" y="415" width="150" height="72" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="520" y="443" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">倒排索引</text>
+  <text x="520" y="460" fill="#94a3b8" font-size="9" text-anchor="middle">term -> postings</text>
+
+  <rect x="620" y="415" width="150" height="72" rx="6" fill="#0f172a"/>
+  <rect x="620" y="415" width="150" height="72" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="695" y="443" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Doc Values</text>
+  <text x="695" y="460" fill="#94a3b8" font-size="9" text-anchor="middle">排序、聚合列存</text>
+
+  <rect x="795" y="415" width="145" height="72" rx="6" fill="#0f172a"/>
+  <rect x="795" y="415" width="145" height="72" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="867.5" y="443" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Segment</text>
+  <text x="867.5" y="460" fill="#94a3b8" font-size="9" text-anchor="middle">刷新、合并、提交</text>
+
+  <rect x="260" y="390" width="680" height="120" rx="12" fill="none" stroke="#a78bfa" stroke-width="1" stroke-dasharray="10,5"/>
+  <text x="275" y="409" fill="#a78bfa" font-size="9" font-weight="600">Lucene 层：单机搜索内核</text>
+
+  <text x="235" y="223" fill="#cbd5e1" font-size="8" text-anchor="middle">request</text>
+  <text x="790" y="292" fill="#cbd5e1" font-size="8">delegates</text>
+  <text x="612" y="304" fill="#cbd5e1" font-size="8" text-anchor="middle">Elasticsearch 选择 shard；Lucene 在 shard 内完成检索</text>
+
+</svg>

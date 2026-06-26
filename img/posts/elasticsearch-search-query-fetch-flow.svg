@@ -1,0 +1,135 @@
+<svg viewBox="0 0 980 760" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, Noto Sans SC, PingFang SC, sans-serif">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+    .title { fill: #f8fafc; font-size: 16px; font-weight: 700; }
+    .subtitle { fill: #94a3b8; font-size: 9px; }
+    .label { fill: #f8fafc; font-size: 11px; font-weight: 600; }
+    .small { fill: #94a3b8; font-size: 9px; }
+    .tiny { fill: #cbd5e1; font-size: 8px; }
+    .phase { font-size: 9px; font-weight: 700; }
+  </style>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-open" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polyline points="0 0, 10 3.5, 0 7" fill="none" stroke="#64748b" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <text x="30" y="35" fill="#f8fafc" font-size="16" font-weight="700">分布式查询：Query Phase 与 Fetch Phase</text>
+  <text x="30" y="53" fill="#94a3b8" font-size="9">每个相关 shard 先返回轻量 top results，coordinating node 合并全局排序，再按最终命中的 doc id 拉取 _source 和 fields。</text>
+
+  <rect x="45" y="110" width="150" height="62" rx="6" fill="#0f172a"/>
+  <rect x="45" y="110" width="150" height="62" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="120" y="135" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Client</text>
+  <text x="120" y="152" fill="#94a3b8" font-size="9" text-anchor="middle">_search request</text>
+
+  <rect x="275" y="95" width="190" height="92" rx="6" fill="#0f172a"/>
+  <rect x="275" y="95" width="190" height="92" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="370" y="124" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Coordinating Node</text>
+  <text x="370" y="143" fill="#94a3b8" font-size="9" text-anchor="middle">解析请求，找到相关 shard</text>
+  <text x="370" y="160" fill="#94a3b8" font-size="9" text-anchor="middle">合并排序，发起 fetch</text>
+
+  <rect x="535" y="90" width="390" height="350" rx="12" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="10,5"/>
+  <text x="550" y="109" fill="#fbbf24" font-size="9" font-weight="700">Query Phase: shard-level 查询</text>
+
+  <rect x="575" y="145" width="135" height="86" rx="6" fill="#0f172a"/>
+  <rect x="575" y="145" width="135" height="86" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="642.5" y="173" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Shard 0</text>
+  <text x="642.5" y="192" fill="#94a3b8" font-size="9" text-anchor="middle">local top N</text>
+  <text x="642.5" y="209" fill="#cbd5e1" font-size="8" text-anchor="middle">doc id + score + sort</text>
+
+  <rect x="745" y="145" width="135" height="86" rx="6" fill="#0f172a"/>
+  <rect x="745" y="145" width="135" height="86" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="812.5" y="173" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Shard 1</text>
+  <text x="812.5" y="192" fill="#94a3b8" font-size="9" text-anchor="middle">local top N</text>
+  <text x="812.5" y="209" fill="#cbd5e1" font-size="8" text-anchor="middle">doc id + score + sort</text>
+
+  <rect x="575" y="280" width="135" height="86" rx="6" fill="#0f172a"/>
+  <rect x="575" y="280" width="135" height="86" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="642.5" y="308" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Shard 2</text>
+  <text x="642.5" y="327" fill="#94a3b8" font-size="9" text-anchor="middle">local top N</text>
+  <text x="642.5" y="344" fill="#cbd5e1" font-size="8" text-anchor="middle">doc id + score + sort</text>
+
+  <rect x="745" y="280" width="135" height="86" rx="6" fill="#0f172a"/>
+  <rect x="745" y="280" width="135" height="86" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="812.5" y="308" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Shard 3</text>
+  <text x="812.5" y="327" fill="#94a3b8" font-size="9" text-anchor="middle">local top N</text>
+  <text x="812.5" y="344" fill="#cbd5e1" font-size="8" text-anchor="middle">doc id + score + sort</text>
+
+  <rect x="275" y="300" width="190" height="86" rx="6" fill="#0f172a"/>
+  <rect x="275" y="300" width="190" height="86" rx="6" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="370" y="328" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Merge Global Top</text>
+  <text x="370" y="347" fill="#94a3b8" font-size="9" text-anchor="middle">按 score / sort values 合并</text>
+  <text x="370" y="364" fill="#cbd5e1" font-size="8" text-anchor="middle">from + size 越大，候选越多</text>
+
+  <rect x="535" y="490" width="390" height="145" rx="12" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="550" y="509" fill="#60a5fa" font-size="9" font-weight="700">Fetch Phase: 只取最终命中的文档内容</text>
+
+  <rect x="575" y="535" width="135" height="58" rx="6" fill="#0f172a"/>
+  <rect x="575" y="535" width="135" height="58" rx="6" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="642.5" y="559" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Multi-get</text>
+  <text x="642.5" y="576" fill="#94a3b8" font-size="9" text-anchor="middle">命中 shard</text>
+
+  <rect x="745" y="535" width="135" height="58" rx="6" fill="#0f172a"/>
+  <rect x="745" y="535" width="135" height="58" rx="6" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="812.5" y="559" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">_source / fields</text>
+  <text x="812.5" y="576" fill="#94a3b8" font-size="9" text-anchor="middle">高亮、stored fields</text>
+
+  <rect x="275" y="535" width="190" height="58" rx="6" fill="#0f172a"/>
+  <rect x="275" y="535" width="190" height="58" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="370" y="559" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">Final Response</text>
+  <text x="370" y="576" fill="#94a3b8" font-size="9" text-anchor="middle">hits + aggs + metadata</text>
+
+  <rect x="60" y="455" width="185" height="128" rx="6" fill="#0f172a"/>
+  <rect x="60" y="455" width="185" height="128" rx="6" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="152.5" y="482" fill="#f8fafc" font-size="11" font-weight="600" text-anchor="middle">深分页风险</text>
+  <text x="152.5" y="505" fill="#94a3b8" font-size="9" text-anchor="middle">from=100000,size=20</text>
+  <text x="152.5" y="524" fill="#94a3b8" font-size="9" text-anchor="middle">每个 shard 都维护</text>
+  <text x="152.5" y="542" fill="#94a3b8" font-size="9" text-anchor="middle">100020 个候选</text>
+  <text x="152.5" y="562" fill="#cbd5e1" font-size="8" text-anchor="middle">优先 search_after / PIT / scroll</text>
+
+  <path d="M 195 141 L 267 141" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <path d="M 465 141 L 567 188" fill="none" stroke="#64748b" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M 465 141 L 737 188" fill="none" stroke="#64748b" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M 465 168 L 567 323" fill="none" stroke="#64748b" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M 465 168 L 737 323" fill="none" stroke="#64748b" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <path d="M 575 220 L 472 312" fill="none" stroke="#fb923c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <path d="M 745 220 L 472 325" fill="none" stroke="#fb923c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <path d="M 575 333 L 472 345" fill="none" stroke="#fb923c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <path d="M 745 333 L 472 358" fill="none" stroke="#fb923c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+
+  <path d="M 370 386 L 370 527" fill="none" stroke="#60a5fa" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <path d="M 465 564 L 567 564" fill="none" stroke="#60a5fa" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M 710 564 L 737 564" fill="none" stroke="#60a5fa" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M 745 590 L 472 580" fill="none" stroke="#64748b" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
+  <path d="M 275 564 L 205 564" fill="none" stroke="#22d3ee" stroke-width="1.3" marker-end="url(#arrow-cyan)"/>
+
+  <path d="M 245 493 L 285 380" fill="none" stroke="#fb7185" stroke-width="1.1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <text x="230" y="131" fill="#cbd5e1" font-size="8" text-anchor="middle">request</text>
+  <text x="515" y="128" fill="#cbd5e1" font-size="8">fan-out</text>
+  <text x="514" y="301" fill="#cbd5e1" font-size="8">top results</text>
+  <text x="504" y="554" fill="#cbd5e1" font-size="8">fetch docs</text>
+  <text x="240" y="553" fill="#cbd5e1" font-size="8" text-anchor="middle">response</text>
+
+  <g transform="translate(575,675)">
+    <rect x="0" y="0" width="350" height="44" rx="6" fill="rgba(30,41,59,0.65)" stroke="#475569" stroke-width="1"/>
+    <text x="14" y="18" fill="#cbd5e1" font-size="8">Query phase 只返回轻量排序信息；Fetch phase 才取回完整文档。</text>
+    <text x="14" y="33" fill="#cbd5e1" font-size="8">shard 数量和 from+size 会同时放大协调节点的合并成本。</text>
+  </g>
+</svg>
