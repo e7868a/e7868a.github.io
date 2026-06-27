@@ -1,15 +1,27 @@
 ---
 layout: default
 ---
-<article id="post-page">
-	<h2>{{ page.title }}</h2>		
-	<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-	<div class="content">
+<div class="post-layout post-toc-pending" data-post-layout>
+	<button id="post-toc-toggle" class="post-toc-toggle" type="button" aria-controls="post-toc" aria-expanded="true" title="切换文章目录" data-post-toc-toggle>
+		<span class="post-toc-toggle-icon" aria-hidden="true"></span>
+		<span class="post-toc-toggle-label">目录</span>
+	</button>
 
-		{{ content }}
-		
-	</div>
-</article>
+	<aside id="post-toc" class="post-toc" aria-label="文章目录" data-post-toc>
+		<div class="post-toc-title">目录</div>
+		<nav class="post-toc-nav" data-post-toc-nav></nav>
+	</aside>
+
+	<article id="post-page">
+		<h2>{{ page.title }}</h2>
+		<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
+		<div class="content">
+
+			{{ content }}
+
+		</div>
+	</article>
+</div>
 
 <script src="https://utteranc.es/client.js"
         repo="e7868a/e7868a.github.io"
