@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/>
+    </marker>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+      text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+      .title { fill: #f8fafc; font-size: 18px; font-weight: 700; }
+      .subtitle { fill: #94a3b8; font-size: 10px; }
+      .label { fill: #f8fafc; font-size: 12px; font-weight: 600; }
+      .small { fill: #94a3b8; font-size: 9px; }
+      .tiny { fill: #cbd5e1; font-size: 8px; }
+      .topic { fill: rgba(76,29,149,0.42); stroke: #a78bfa; stroke-width: 1.4; }
+      .consumer { fill: rgba(59,130,246,0.35); stroke: #60a5fa; stroke-width: 1.5; }
+      .coord { fill: rgba(120,53,15,0.34); stroke: #fbbf24; stroke-width: 1.5; }
+      .process { fill: rgba(6,78,59,0.45); stroke: #34d399; stroke-width: 1.5; }
+      .offset { fill: rgba(30,41,59,0.58); stroke: #94a3b8; stroke-width: 1.2; }
+      .warn { fill: rgba(136,19,55,0.42); stroke: #fb7185; stroke-width: 1.3; }
+      .line { fill: none; stroke: #64748b; stroke-width: 1.4; marker-end: url(#arrow); }
+      .blue { fill: none; stroke: #60a5fa; stroke-width: 1.6; marker-end: url(#arrow-blue); }
+      .green { fill: none; stroke: #34d399; stroke-width: 1.7; marker-end: url(#arrow-green); }
+      .orange { fill: none; stroke: #fb923c; stroke-width: 1.6; marker-end: url(#arrow-orange); }
+      .region { fill: none; stroke: #fbbf24; stroke-width: 1; stroke-dasharray: 8 4; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="760" fill="#0f172a"/>
+  <rect width="1100" height="760" fill="url(#grid)"/>
+
+  <text x="34" y="38" class="title">Kafka 消费、Offset 提交与重放</text>
+  <text x="34" y="58" class="subtitle">Consumer group 拥有自己的 partition 分配和 offset；提交 offset 只更新进度，不删除 topic 中的数据。</text>
+
+  <rect x="54" y="96" width="280" height="500" rx="12" class="region"/>
+  <text x="72" y="118" fill="#fbbf24" font-size="10" font-weight="600">Topic: order-events</text>
+
+  <rect x="92" y="152" width="206" height="72" rx="7" fill="#0f172a"/>
+  <rect x="92" y="152" width="206" height="72" rx="7" class="topic"/>
+  <text x="195" y="179" text-anchor="middle" class="label">partition 0</text>
+  <text x="195" y="198" text-anchor="middle" class="small">offset 0 ... 15342 ...</text>
+
+  <rect x="92" y="270" width="206" height="72" rx="7" fill="#0f172a"/>
+  <rect x="92" y="270" width="206" height="72" rx="7" class="topic"/>
+  <text x="195" y="297" text-anchor="middle" class="label">partition 1</text>
+  <text x="195" y="316" text-anchor="middle" class="small">offset 0 ... 18201 ...</text>
+
+  <rect x="92" y="388" width="206" height="72" rx="7" fill="#0f172a"/>
+  <rect x="92" y="388" width="206" height="72" rx="7" class="topic"/>
+  <text x="195" y="415" text-anchor="middle" class="label">partition 2</text>
+  <text x="195" y="434" text-anchor="middle" class="small">offset 0 ... 14987 ...</text>
+
+  <rect x="396" y="104" width="250" height="86" rx="8" fill="#0f172a"/>
+  <rect x="396" y="104" width="250" height="86" rx="8" class="coord"/>
+  <text x="521" y="134" text-anchor="middle" class="label">Group Coordinator</text>
+  <text x="521" y="154" text-anchor="middle" class="small">join group / heartbeat</text>
+  <text x="521" y="171" text-anchor="middle" class="small">partition assignment</text>
+
+  <rect x="396" y="246" width="250" height="188" rx="12" class="region"/>
+  <text x="414" y="268" fill="#fbbf24" font-size="10" font-weight="600">Consumer Group: billing-service</text>
+
+  <rect x="428" y="296" width="84" height="58" rx="7" fill="#0f172a"/>
+  <rect x="428" y="296" width="84" height="58" rx="7" class="consumer"/>
+  <text x="470" y="321" text-anchor="middle" class="label">C1</text>
+  <text x="470" y="339" text-anchor="middle" class="small">p0</text>
+
+  <rect x="526" y="296" width="84" height="58" rx="7" fill="#0f172a"/>
+  <rect x="526" y="296" width="84" height="58" rx="7" class="consumer"/>
+  <text x="568" y="321" text-anchor="middle" class="label">C2</text>
+  <text x="568" y="339" text-anchor="middle" class="small">p1,p2</text>
+
+  <rect x="428" y="376" width="182" height="42" rx="7" fill="#0f172a"/>
+  <rect x="428" y="376" width="182" height="42" rx="7" class="consumer"/>
+  <text x="519" y="402" text-anchor="middle" class="small">poll records by assignment</text>
+
+  <rect x="744" y="246" width="228" height="78" rx="7" fill="#0f172a"/>
+  <rect x="744" y="246" width="228" height="78" rx="7" class="process"/>
+  <text x="858" y="274" text-anchor="middle" class="label">处理业务</text>
+  <text x="858" y="293" text-anchor="middle" class="small">写数据库 / 调接口 / 计算</text>
+  <text x="858" y="309" text-anchor="middle" class="small">必须考虑幂等</text>
+
+  <rect x="744" y="382" width="228" height="78" rx="7" fill="#0f172a"/>
+  <rect x="744" y="382" width="228" height="78" rx="7" class="offset"/>
+  <text x="858" y="410" text-anchor="middle" class="label">提交 offset</text>
+  <text x="858" y="429" text-anchor="middle" class="small">commitSync / commitAsync</text>
+  <text x="858" y="445" text-anchor="middle" class="small">表示下次从哪里继续</text>
+
+  <rect x="420" y="540" width="250" height="78" rx="7" fill="#0f172a"/>
+  <rect x="420" y="540" width="250" height="78" rx="7" class="offset"/>
+  <text x="545" y="568" text-anchor="middle" class="label">__consumer_offsets</text>
+  <text x="545" y="587" text-anchor="middle" class="small">compacted internal topic</text>
+  <text x="545" y="603" text-anchor="middle" class="small">group/topic/partition -&gt; offset</text>
+
+  <rect x="744" y="540" width="228" height="78" rx="7" fill="#0f172a"/>
+  <rect x="744" y="540" width="228" height="78" rx="7" class="warn"/>
+  <text x="858" y="568" text-anchor="middle" class="label">失败后重放</text>
+  <text x="858" y="587" text-anchor="middle" class="small">seek / reset offset</text>
+  <text x="858" y="603" text-anchor="middle" class="small">数据仍受 retention 限制</text>
+
+  <path d="M 396 147 L 334 147 L 334 188 L 298 188" class="line"/>
+  <path d="M 396 147 L 356 147 L 356 306 L 298 306" class="line"/>
+  <path d="M 396 147 L 376 147 L 376 424 L 298 424" class="line"/>
+
+  <path d="M 298 188 C 350 188, 370 304, 428 318" class="blue"/>
+  <path d="M 298 306 C 350 306, 390 318, 526 318" class="blue"/>
+  <path d="M 298 424 C 350 424, 402 350, 526 340" class="blue"/>
+  <path d="M 610 397 C 666 397, 682 285, 744 285" class="green"/>
+  <path d="M 858 324 L 858 382" class="green"/>
+  <path d="M 744 421 C 690 421, 680 579, 670 579" class="orange"/>
+  <path d="M 670 579 L 744 579" class="orange"/>
+  <path d="M 744 579 C 520 690, 170 676, 170 460" class="orange"/>
+
+  <text x="337" y="178" class="tiny">assignment</text>
+  <text x="346" y="287" class="tiny" fill="#60a5fa">poll</text>
+  <text x="674" y="274" class="tiny" fill="#34d399">process after poll</text>
+  <text x="686" y="448" class="tiny" fill="#fb923c">commit</text>
+  <text x="624" y="642" class="tiny" fill="#fb923c">reset/seek 后从旧 offset 重新读</text>
+
+  <rect x="76" y="650" width="948" height="48" rx="7" fill="#0f172a"/>
+  <rect x="76" y="650" width="948" height="48" rx="7" fill="rgba(30,41,59,0.55)" stroke="#94a3b8" stroke-width="1"/>
+  <text x="550" y="678" text-anchor="middle" class="small">处理成功再提交 offset 通常得到 at-least-once；业务侧需要用 event id、唯一键或状态机做幂等。</text>
+</svg>
