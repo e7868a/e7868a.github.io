@@ -1,0 +1,89 @@
+<svg viewBox="0 0 980 560" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, Noto Sans SC, PingFang SC, sans-serif">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+  </style>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <text x="30" y="36" fill="#f8fafc" font-size="16" font-weight="700">RabbitMQ AMQP 路由模型</text>
+  <text x="30" y="56" fill="#94a3b8" font-size="9">Producer 发布到 exchange；exchange 根据类型和 binding 规则，把消息投递到一个或多个 queue。</text>
+
+  <rect x="34" y="86" width="912" height="398" rx="12" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="50" y="106" fill="#fbbf24" font-size="9" font-weight="600">Virtual Host: /prod-orders</text>
+
+  <rect x="70" y="180" width="148" height="66" rx="6" fill="#0f172a"/>
+  <rect x="70" y="180" width="148" height="66" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="144" y="207" fill="#fff" font-size="12" font-weight="600" text-anchor="middle">Producer</text>
+  <text x="144" y="225" fill="#94a3b8" font-size="9" text-anchor="middle">basic.publish</text>
+
+  <path d="M 218 213 L 336 213" fill="none" stroke="#22d3ee" stroke-width="1.7" marker-end="url(#arrow)"/>
+  <text x="276" y="198" fill="#cbd5e1" font-size="8" text-anchor="middle">routing key</text>
+  <text x="276" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">order.paid</text>
+
+  <rect x="336" y="154" width="172" height="118" rx="8" fill="#0f172a"/>
+  <rect x="336" y="154" width="172" height="118" rx="8" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="422" y="181" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Topic Exchange</text>
+  <text x="422" y="200" fill="#fbbf24" font-size="9" text-anchor="middle">orders.events</text>
+  <text x="422" y="224" fill="#cbd5e1" font-size="8" text-anchor="middle">根据 binding pattern</text>
+  <text x="422" y="241" fill="#cbd5e1" font-size="8" text-anchor="middle">选择目标队列</text>
+
+  <rect x="588" y="112" width="144" height="58" rx="6" fill="#0f172a"/>
+  <rect x="588" y="112" width="144" height="58" rx="6" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="660" y="136" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">search.queue</text>
+  <text x="660" y="153" fill="#94a3b8" font-size="8" text-anchor="middle">binding: order.#</text>
+
+  <rect x="588" y="216" width="144" height="58" rx="6" fill="#0f172a"/>
+  <rect x="588" y="216" width="144" height="58" rx="6" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="660" y="240" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">points.queue</text>
+  <text x="660" y="257" fill="#94a3b8" font-size="8" text-anchor="middle">binding: order.paid</text>
+
+  <rect x="588" y="320" width="144" height="58" rx="6" fill="#0f172a"/>
+  <rect x="588" y="320" width="144" height="58" rx="6" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="660" y="344" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">audit.queue</text>
+  <text x="660" y="361" fill="#94a3b8" font-size="8" text-anchor="middle">binding: #</text>
+
+  <path d="M 508 188 L 588 141" fill="none" stroke="#fb923c" stroke-width="1.4" marker-end="url(#arrow-orange)"/>
+  <text x="548" y="151" fill="#fbbf24" font-size="8" text-anchor="middle">match</text>
+  <path d="M 508 218 L 588 245" fill="none" stroke="#fb923c" stroke-width="1.4" marker-end="url(#arrow-orange)"/>
+  <text x="548" y="238" fill="#fbbf24" font-size="8" text-anchor="middle">match</text>
+  <path d="M 508 244 L 588 349" fill="none" stroke="#fb923c" stroke-width="1.4" marker-end="url(#arrow-orange)"/>
+  <text x="548" y="315" fill="#fbbf24" font-size="8" text-anchor="middle">match</text>
+
+  <rect x="798" y="112" width="112" height="58" rx="6" fill="#0f172a"/>
+  <rect x="798" y="112" width="112" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="854" y="136" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Search</text>
+  <text x="854" y="153" fill="#94a3b8" font-size="8" text-anchor="middle">consumer</text>
+
+  <rect x="798" y="216" width="112" height="58" rx="6" fill="#0f172a"/>
+  <rect x="798" y="216" width="112" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="854" y="240" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Points</text>
+  <text x="854" y="257" fill="#94a3b8" font-size="8" text-anchor="middle">consumer</text>
+
+  <rect x="798" y="320" width="112" height="58" rx="6" fill="#0f172a"/>
+  <rect x="798" y="320" width="112" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="854" y="344" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Audit</text>
+  <text x="854" y="361" fill="#94a3b8" font-size="8" text-anchor="middle">consumer</text>
+
+  <path d="M 732 141 L 798 141" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <path d="M 732 245 L 798 245" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <path d="M 732 349 L 798 349" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+
+  <rect x="336" y="394" width="574" height="48" rx="8" fill="rgba(30,41,59,0.65)" stroke="#64748b" stroke-width="1"/>
+  <text x="623" y="414" fill="#e2e8f0" font-size="9" font-weight="600" text-anchor="middle">Exchange 不保存消息，Queue 才保存等待消费的消息。</text>
+  <text x="623" y="432" fill="#94a3b8" font-size="8" text-anchor="middle">一个事件可以通过不同 binding 进入多个 queue；每个 queue 有自己的消费进度、重试和死信策略。</text>
+</svg>

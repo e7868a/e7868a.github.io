@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, Noto Sans SC, PingFang SC, sans-serif">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+  </style>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <text x="30" y="36" fill="#f8fafc" font-size="16" font-weight="700">常见消息中间件定位对比</text>
+  <text x="30" y="56" fill="#94a3b8" font-size="9">横轴表示模型更偏任务队列还是事件流；纵轴表示部署和平台能力复杂度。位置是工程选型上的粗略定位，不是绝对排名。</text>
+
+  <rect x="96" y="104" width="820" height="410" rx="12" fill="rgba(15,23,42,0.55)" stroke="#334155" stroke-width="1"/>
+  <line x1="506" y1="128" x2="506" y2="490" stroke="#475569" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="130" y1="309" x2="882" y2="309" stroke="#475569" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <line x1="130" y1="514" x2="882" y2="514" stroke="#64748b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <text x="130" y="540" fill="#cbd5e1" font-size="9">任务队列 / 复杂路由</text>
+  <text x="882" y="540" fill="#cbd5e1" font-size="9" text-anchor="end">事件流 / 保留与重放</text>
+
+  <line x1="96" y1="490" x2="96" y2="128" stroke="#64748b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <text x="74" y="492" fill="#cbd5e1" font-size="9" text-anchor="end">轻量</text>
+  <text x="74" y="132" fill="#cbd5e1" font-size="9" text-anchor="end">平台化</text>
+
+  <rect x="170" y="186" width="132" height="50" rx="6" fill="#0f172a"/>
+  <rect x="170" y="186" width="132" height="50" rx="6" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="236" y="207" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">RabbitMQ</text>
+  <text x="236" y="223" fill="#fbbf24" font-size="8" text-anchor="middle">路由 / ack / DLX</text>
+
+  <rect x="320" y="246" width="132" height="50" rx="6" fill="#0f172a"/>
+  <rect x="320" y="246" width="132" height="50" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="386" y="267" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">RocketMQ</text>
+  <text x="386" y="283" fill="#fbbf24" font-size="8" text-anchor="middle">业务消息能力</text>
+
+  <rect x="176" y="340" width="146" height="50" rx="6" fill="#0f172a"/>
+  <rect x="176" y="340" width="146" height="50" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="249" y="361" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">ActiveMQ</text>
+  <text x="249" y="377" fill="#cbd5e1" font-size="8" text-anchor="middle">JMS / 多协议</text>
+
+  <rect x="572" y="214" width="132" height="50" rx="6" fill="#0f172a"/>
+  <rect x="572" y="214" width="132" height="50" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="638" y="235" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">Kafka</text>
+  <text x="638" y="251" fill="#67e8f9" font-size="8" text-anchor="middle">partition log</text>
+
+  <rect x="720" y="144" width="132" height="50" rx="6" fill="#0f172a"/>
+  <rect x="720" y="144" width="132" height="50" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="786" y="165" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">Pulsar</text>
+  <text x="786" y="181" fill="#c4b5fd" font-size="8" text-anchor="middle">存储计算分离</text>
+
+  <rect x="650" y="362" width="154" height="50" rx="6" fill="#0f172a"/>
+  <rect x="650" y="362" width="154" height="50" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="727" y="383" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">NATS JetStream</text>
+  <text x="727" y="399" fill="#86efac" font-size="8" text-anchor="middle">轻量持久流</text>
+
+  <rect x="494" y="408" width="132" height="50" rx="6" fill="#0f172a"/>
+  <rect x="494" y="408" width="132" height="50" rx="6" fill="rgba(6,78,59,0.35)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="560" y="429" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">Redis Streams</text>
+  <text x="560" y="445" fill="#86efac" font-size="8" text-anchor="middle">Redis 内轻量流</text>
+
+  <rect x="344" y="430" width="132" height="50" rx="6" fill="#0f172a"/>
+  <rect x="344" y="430" width="132" height="50" rx="6" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="410" y="451" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">SQS</text>
+  <text x="410" y="467" fill="#bfdbfe" font-size="8" text-anchor="middle">托管队列</text>
+
+  <rect x="122" y="122" width="250" height="42" rx="7" fill="rgba(30,41,59,0.6)" stroke="#475569" stroke-width="1"/>
+  <text x="247" y="140" fill="#e2e8f0" font-size="8" text-anchor="middle">左上：复杂路由、确认、重试、平台化队列</text>
+  <text x="247" y="155" fill="#94a3b8" font-size="8" text-anchor="middle">典型：RabbitMQ / RocketMQ</text>
+
+  <rect x="636" y="470" width="236" height="32" rx="7" fill="rgba(30,41,59,0.6)" stroke="#475569" stroke-width="1"/>
+  <text x="754" y="490" fill="#94a3b8" font-size="8" text-anchor="middle">右下：轻量持久流，适合服务通信和局部事件流</text>
+</svg>
