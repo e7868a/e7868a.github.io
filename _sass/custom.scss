@@ -62,6 +62,199 @@ table tr td:last-child {
     margin-bottom: 0;
 }
 
+.post-layout {
+    position: relative;
+}
+
+#post-page {
+    min-width: 0;
+}
+
+#container.post-container {
+    max-width: 1024px;
+}
+
+.post-toc-pending .post-toc,
+.post-toc-pending .post-toc-toggle {
+    visibility: hidden;
+}
+
+.post-toc-toggle {
+    position: fixed;
+    top: 28px;
+    left: 24px;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.25rem;
+    padding: 0 0.7rem;
+    border: 1px solid #dfe6ee;
+    border-radius: 4px;
+    background: rgba(253, 253, 253, 0.96);
+    color: $text-color;
+    font: inherit;
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(20, 45, 70, 0.12);
+}
+
+.post-toc-toggle:hover,
+.post-toc-toggle:focus {
+    border-color: lighten($main-color, 20%);
+    color: darken($main-color, 8%);
+    outline: none;
+}
+
+.post-toc-toggle-icon,
+.post-toc-toggle-icon::before,
+.post-toc-toggle-icon::after {
+    display: block;
+    width: 0.9rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.post-toc-toggle-icon {
+    position: relative;
+}
+
+.post-toc-toggle-icon::before,
+.post-toc-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.post-toc-toggle-icon::before {
+    top: -5px;
+}
+
+.post-toc-toggle-icon::after {
+    top: 5px;
+}
+
+.post-toc {
+    position: fixed;
+    top: 4.75rem;
+    left: 1rem;
+    z-index: 15;
+    width: min(20rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid $main-color;
+    border-radius: 4px;
+    background: rgba(253, 253, 253, 0.98);
+    box-shadow: 0 8px 24px rgba(20, 45, 70, 0.16);
+    transition: opacity 0.18s ease-in;
+}
+
+.post-layout.post-toc-hidden .post-toc {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.post-layout.post-toc-empty .post-toc,
+.post-layout.post-toc-empty .post-toc-toggle {
+    display: none;
+}
+
+.post-toc-title {
+    padding: 0.75rem 0.85rem 0.45rem;
+    color: lighten($text-color, 25%);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.post-toc-list {
+    margin: 0;
+    padding: 0 0 0.7rem;
+}
+
+.post-toc-item {
+    list-style: none;
+    margin: 0;
+}
+
+.post-toc-link {
+    display: block;
+    padding: 0.32rem 0.85rem 0.32rem 0.7rem;
+    border-left: 3px solid transparent;
+    color: lighten($text-color, 18%);
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.post-toc-link:hover,
+.post-toc-link:focus {
+    color: darken($main-color, 8%);
+    outline: none;
+}
+
+.post-toc-item-h4 .post-toc-link {
+    padding-left: 1.45rem;
+    color: lighten($text-color, 30%);
+    font-size: 0.86rem;
+}
+
+.post-toc-link-active,
+.post-toc-item-h4 .post-toc-link-active {
+    border-left-color: $main-color;
+    background: #edf6fd;
+    color: $text-color;
+    font-weight: 700;
+}
+
+.content h3,
+.content h4 {
+    scroll-margin-top: 1.5rem;
+}
+
+@media (min-width: 1180px) {
+    #container.post-container {
+        max-width: 1320px;
+    }
+
+    .post-layout {
+        display: grid;
+        grid-template-columns: 14rem minmax(0, 1024px);
+        grid-template-areas: "toggle article" "toc article";
+        grid-template-rows: auto 1fr;
+        column-gap: 2rem;
+        align-items: start;
+    }
+
+    .post-toc-toggle {
+        grid-area: toggle;
+        position: sticky;
+        top: 1.5rem;
+        left: auto;
+        justify-self: start;
+        margin-bottom: 0.75rem;
+    }
+
+    .post-toc {
+        grid-area: toc;
+        position: sticky;
+        top: 5rem;
+        left: auto;
+        width: 14rem;
+        max-height: calc(100vh - 6rem);
+        box-shadow: none;
+    }
+
+    #post-page {
+        grid-area: article;
+    }
+}
+
 .tags-box{
     li {
       list-style: none;
