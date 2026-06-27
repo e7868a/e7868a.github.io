@@ -93,6 +93,20 @@ blockquote.note {
         padding-bottom: 0.2em;
     }
 
+    /* <ul>/<ol> 在 NOTE 框里上下 padding 太空,
+       压到与段落一致,避免 li 撑大整块。
+       注意 typography.scss 里 blockquote ul 有 padding: 1.5em 0,
+       必须用 shorthand 显式覆盖上下,不能只设 padding-left。 */
+    & ul,
+    & ol {
+        margin: 0.2em 0;
+        padding: 0.1em 0 0.1em 1.6em;
+    }
+    & li {
+        padding: 0.1em 0;
+        margin: 0;
+    }
+
     &::before {
         content: "💡 ";
         font-size: 1.1em;

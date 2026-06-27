@@ -1,0 +1,96 @@
+<svg viewBox="0 0 980 520" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, Noto Sans SC, PingFang SC, sans-serif">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+  </style>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <text x="30" y="36" fill="#f8fafc" font-size="16" font-weight="700">消息中间件在系统中的位置</text>
+  <text x="30" y="56" fill="#94a3b8" font-size="9">把同步依赖拆成可缓冲、可重试、可观察的异步边界；消费者按自己的能力处理消息。</text>
+
+  <rect x="34" y="92" width="190" height="318" rx="12" fill="none" stroke="#22d3ee" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="48" y="112" fill="#22d3ee" font-size="9" font-weight="600">生产侧</text>
+
+  <rect x="64" y="146" width="130" height="62" rx="6" fill="#0f172a"/>
+  <rect x="64" y="146" width="130" height="62" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="129" y="171" fill="#fff" font-size="12" font-weight="600" text-anchor="middle">订单服务</text>
+  <text x="129" y="189" fill="#94a3b8" font-size="9" text-anchor="middle">Order Service</text>
+
+  <rect x="64" y="270" width="130" height="62" rx="6" fill="#0f172a"/>
+  <rect x="64" y="270" width="130" height="62" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="129" y="295" fill="#fff" font-size="12" font-weight="600" text-anchor="middle">支付服务</text>
+  <text x="129" y="313" fill="#94a3b8" font-size="9" text-anchor="middle">Payment Service</text>
+
+  <path d="M 194 177 L 304 177" fill="none" stroke="#22d3ee" stroke-width="1.7" marker-end="url(#arrow-cyan)"/>
+  <path d="M 194 301 L 304 301" fill="none" stroke="#22d3ee" stroke-width="1.7" marker-end="url(#arrow-cyan)"/>
+  <text x="251" y="162" fill="#cbd5e1" font-size="8" text-anchor="middle">发布事件</text>
+  <text x="251" y="286" fill="#cbd5e1" font-size="8" text-anchor="middle">发布命令</text>
+
+  <rect x="304" y="116" width="210" height="246" rx="12" fill="#0f172a"/>
+  <rect x="304" y="116" width="210" height="246" rx="12" fill="rgba(251,146,60,0.18)" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="409" y="145" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">Message Broker</text>
+  <text x="409" y="163" fill="#fbbf24" font-size="9" text-anchor="middle">队列 / 主题 / 分区 / 重试 / 死信</text>
+
+  <rect x="336" y="198" width="146" height="34" rx="17" fill="rgba(251,146,60,0.28)" stroke="#fb923c" stroke-width="1"/>
+  <text x="409" y="220" fill="#fff7ed" font-size="10" font-weight="600" text-anchor="middle">削峰填谷</text>
+  <rect x="336" y="246" width="146" height="34" rx="17" fill="rgba(251,146,60,0.28)" stroke="#fb923c" stroke-width="1"/>
+  <text x="409" y="268" fill="#fff7ed" font-size="10" font-weight="600" text-anchor="middle">失败隔离</text>
+  <rect x="336" y="294" width="146" height="34" rx="17" fill="rgba(251,146,60,0.28)" stroke="#fb923c" stroke-width="1"/>
+  <text x="409" y="316" fill="#fff7ed" font-size="10" font-weight="600" text-anchor="middle">异步解耦</text>
+
+  <rect x="584" y="92" width="346" height="318" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="598" y="112" fill="#34d399" font-size="9" font-weight="600">消费侧</text>
+
+  <rect x="628" y="128" width="120" height="54" rx="6" fill="#0f172a"/>
+  <rect x="628" y="128" width="120" height="54" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="688" y="151" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">库存服务</text>
+  <text x="688" y="168" fill="#94a3b8" font-size="8" text-anchor="middle">按能力消费</text>
+
+  <rect x="776" y="128" width="120" height="54" rx="6" fill="#0f172a"/>
+  <rect x="776" y="128" width="120" height="54" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="836" y="151" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">积分服务</text>
+  <text x="836" y="168" fill="#94a3b8" font-size="8" text-anchor="middle">独立进度</text>
+
+  <rect x="628" y="222" width="120" height="54" rx="6" fill="#0f172a"/>
+  <rect x="628" y="222" width="120" height="54" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="688" y="245" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">搜索索引</text>
+  <text x="688" y="262" fill="#94a3b8" font-size="8" text-anchor="middle">最终一致</text>
+
+  <rect x="776" y="222" width="120" height="54" rx="6" fill="#0f172a"/>
+  <rect x="776" y="222" width="120" height="54" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="836" y="245" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">通知服务</text>
+  <text x="836" y="262" fill="#94a3b8" font-size="8" text-anchor="middle">失败重试</text>
+
+  <rect x="702" y="316" width="120" height="54" rx="6" fill="#0f172a"/>
+  <rect x="702" y="316" width="120" height="54" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="762" y="339" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">数仓 / 审计</text>
+  <text x="762" y="356" fill="#94a3b8" font-size="8" text-anchor="middle">可异步回放</text>
+
+  <path d="M 514 181 L 628 155" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-emerald)"/>
+  <path d="M 514 205 L 776 155" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-emerald)"/>
+  <path d="M 514 241 L 628 249" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-emerald)"/>
+  <path d="M 514 267 L 776 249" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-emerald)"/>
+  <path d="M 514 303 L 702 343" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-emerald)"/>
+
+  <rect x="94" y="440" width="792" height="42" rx="8" fill="rgba(30,41,59,0.65)" stroke="#64748b" stroke-width="1"/>
+  <text x="490" y="458" fill="#e2e8f0" font-size="10" font-weight="600" text-anchor="middle">关键变化：调用方不等待所有下游完成；失败、重试、堆积和补偿变成 broker 与消费者侧的可观察状态。</text>
+  <text x="490" y="475" fill="#94a3b8" font-size="8" text-anchor="middle">代价是必须处理重复消费、局部顺序、死信、容量规划和最终一致性。</text>
+</svg>
